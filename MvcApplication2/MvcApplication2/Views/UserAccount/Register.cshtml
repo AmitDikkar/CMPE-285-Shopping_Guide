@@ -1,6 +1,9 @@
-﻿@{
-    ViewBag.Title = "Login";
+﻿@model MvcApplication2.Models.User
+
+@{
+    ViewBag.Title = "Register";
 }
+
 
 <div id="mainBody">
 	<div class="container">
@@ -78,23 +81,23 @@
 	<div class="row">
 		<div class="span4">
 			<div class="well">
-			<h5>Login Here Or @Html.ActionLink("Register", "Register", "UserAccount")</h5>
-			@using (Html.BeginForm()) {
+			<h5>Register and Check for your email</h5>
+			@using (Html.BeginForm() {
 			  <div class="control-group">
-				<label class="control-label" for="inputEmail1">Email</label>
+				<label class="control-label" for="email">Email</label>
 				<div class="controls">
-				  <input class="span3"  type="text" id="inputEmail1" placeholder="Email">
+				  <input class="span3"  type="text" id="email" name="email" placeholder="Email">
 				</div>
 			  </div>
 			  <div class="control-group">
-				<label class="control-label" for="inputPassword1">Password</label>
+				<label class="control-label" for="password">Password</label>
 				<div class="controls">
-				  <input type="password" class="span3"  id="inputPassword1" placeholder="Password">
+				  <input type="password" class="span3"  id="password" name="password" placeholder="Password">
 				</div>
 			  </div>
 			  <div class="control-group">
 				<div class="controls">
-				  <button type="submit" class="btn" Value="Login">Sign in</button> <a href="forgetpass.html">Forget password?</a>
+				  <button type="submit" class="btn" Value="Register">Sign in</button> <a href="forgetpass.html">Forget password?</a>
 				</div>
 			  </div>
    }

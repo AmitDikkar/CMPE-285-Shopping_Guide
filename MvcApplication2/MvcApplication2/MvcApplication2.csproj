@@ -169,6 +169,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -553,6 +554,7 @@
     <Content Include="Views\Home\specialOffer.cshtml" />
     <Content Include="Views\Home\Normal.cshtml" />
     <Content Include="Views\UserAccount\Login.cshtml" />
+    <Content Include="Views\UserAccount\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
