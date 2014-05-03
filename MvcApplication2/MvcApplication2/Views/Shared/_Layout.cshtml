@@ -30,11 +30,11 @@
     <!-- Google-code-prettify -->
     <!--<link href="themes/js/google-code-prettify/prettify.css" rel="stylesheet" />-->
     <!-- fav and touch icons -->
-    <link rel="shortcut icon" href="Content/themes/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="Content/themes/images/apple-touch-icon-144-precomposed">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Content/themes/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Content/themes/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="Content/themes/images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="~/Content/themes/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/themes/images/apple-touch-icon-144-precomposed">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/themes/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/themes/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/themes/images/ico/apple-touch-icon-57-precomposed.png">
     <style type="text/css" id="enject"></style>
 
 @Styles.Render("~/Content/css")
@@ -44,16 +44,16 @@
     <div id="header">
         <div class="container">
             <div id="welcomeLine" class="row">
-                <div class="span6">Welcome!<strong> User</strong></div>
+                <div class="span6">Welcome!<strong>@if (HttpContext.Current.Session["LoggedUser"] != null) {<text> @HttpContext.Current.Session["LoggedUserName"].ToString()</text> }else{<text> user</text>}</strong></div>
                 <div class="span6">
                     <div class="pull-right">
-                        <a href="product_summary.html"><span class="">Fr</span></a>
-                        <a href="product_summary.html"><span class="">Es</span></a>
-                        <span class="btn btn-mini">En</span>
-                        <a href="product_summary.html"><span>&pound;</span></a>
-                        <span class="btn btn-mini">$155.00</span>
-                        <a href="product_summary.html"><span class="">$</span></a>
-                        <a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i>[ 3 ] Itemes in your cart </span></a>
+                        <!--<a href="product_summary.html"><span class="">Fr</span></a>
+                        <a href="product_summary.html"><span class="">Es</span></a>-->
+                        <!--<span class="btn btn-mini">En</span>
+                        <a href="product_summary.html"><span>&pound;</span></a>-->
+                        <a href=@Url.Action("Index", "Cart") ><span class="btn btn-mini">@if(HttpContext.Current.Session["CurrentCartTotal"]!=null){<text>$@HttpContext.Current.Session["CurrentCartTotal"].ToString()</text>}else{<text>$00.00</text>}</span></a>
+                        <a href=@Url.Action("Index", "Cart") ><span class="">$</span></a>
+                        <a href=@Url.Action("Index", "Cart") ><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i>@if(HttpContext.Current.Session["CurrentCartCount"]!=null){<text>@HttpContext.Current.Session["CurrentCartCount"].ToString()</text>}else{<text>0</text>} Itemes in your cart </span></a>
                     </div>
                 </div>
             </div>
@@ -65,8 +65,8 @@
                     <span class="icon-bar"></span>
                 </a>
                 <div class="navbar-inner">
-                    <a class="brand" href="index.html">
-                        <img src="Content/themes/images/logo.png" alt="Bootsshop" /></a>
+                    <a class="brand" href="@Url.Action("Index","Home")">
+                        <img src="~/Content/themes/images/logo.png" alt="Bootsshop" /></a>
                     <form class="form-inline navbar-search" method="post" action="products.html">
                         <input id="srchFld" class="srchTxt" type="text" />
                         <select class="srchTxt">
@@ -83,13 +83,13 @@
                         <li class="">@Html.ActionLink("Special Offers","specialOffer", "Home")</li>
                         <li class="">@Html.ActionLink("Delivery","Normal", "Home")</li>
                         <li class="">@Html.ActionLink("Contact","Contact", "Home")</li>
-                        <li class="">
-                            <a href="@Url.Action("Login", "UserAccount")" role="button" data-toggle="modal" style="padding-right: 0"><span class="btn btn-large btn-success">Login</span></a>
+                        <li class=""><a href="@Url.Action("Login", "UserAccount")" role="button" data-toggle="modal" class="btn btn-large btn-success" type="submit"padding-right: 0">Login</a></li>
                             <!--<a href="#login" role="button" data-toggle="modal" style="padding-right: 0"><span class="btn btn-large btn-success">Login</span></a>-->
+                    
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
-                                    <h3>Login Block</h3>
+                                    <h3>Login Block</h3>role
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal loginFrm">
@@ -110,14 +110,84 @@
                                     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                                 </div>
                             </div>
-                        </li>
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 <!-- Header End====================================================================== -->
+    <!--Section only for Index page-->
+    @RenderSection("sectionforindex", required : false)
+    <!--Section only for Index page Ends-->
+    <div id="mainBody">
+	<div class="container">
+	<div class="row">
+        
+    <!-- Sidebar ================================================== -->
+	<div id="sidebar" class="span3">
+		<div class="well well-small"><a id="myCart" href=@Url.Action("Index", "Cart") ><img src="~/Content/themes/images/ico-cart.png" alt="cart">@if(HttpContext.Current.Session["CurrentCartCount"]!=null){<text>@HttpContext.Current.Session["CurrentCartCount"].ToString()</text>}else{<text>0</text>} Items in your cart  <span class="badge badge-warning pull-right">@if(HttpContext.Current.Session["CurrentCartTotal"]!=null){<text>$@HttpContext.Current.Session["CurrentCartTotal"].ToString()</text>}else{<text>$00.00</text>}</span></a></div>
+		<ul id="sideManu" class="nav nav-tabs nav-stacked">
+			<li class="subMenu open"><a> ELECTRONICS [230]</a>
+				<ul>
+				<li><a class="active" href=@Url.Action("Index","Products",new {producType="Electronics", productSubtype="Camera"})><i class="icon-chevron-right"></i>Cameras (100) </a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Computers, Tablets & laptop (30)</a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Mobile Phone (80)</a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Sound & Vision (15)</a></li>
+				</ul>
+			</li>
+			<li class="subMenu"><a> CLOTHES [840] </a>
+			<ul style="display:none">
+				<li><a href=@Url.Action("Index","Products",new {productType="Clothes",productSubtype="WomenClothes"})><i class="icon-chevron-right"></i>Women's Clothing (45)</a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Women's Shoes (8)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Women's Hand Bags (5)</a></li>	
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Men's Clothings  (45)</a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Men's Shoes (6)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Kids Clothing (5)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Kids Shoes (3)</a></li>												
+			</ul>
+			</li>
+			<li class="subMenu"><a>FOOD AND BEVERAGES [1000]</a>
+				<ul style="display:none">
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Angoves  (35)</a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Bouchard Aine & Fils (8)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>French Rabbit (5)</a></li>	
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Louis Bernard  (45)</a></li>
+				<li><a href="products.html"><i class="icon-chevron-right"></i>BIB Wine (Bag in Box) (8)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Other Liquors & Wine (5)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Garden (3)</a></li>												
+				<li><a href="products.html"><i class="icon-chevron-right"></i>Khao Shong (11)</a></li>												
+			</ul>
+			</li>
+			<li><a href="products.html">HEALTH & BEAUTY [18]</a></li>
+			<li><a href="products.html">SPORTS & LEISURE [58]</a></li>
+			<li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
+		</ul>
+		<br/>
+		  <div class="thumbnail">
+			<img src="~/Content/themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera"/>
+			<div class="caption">
+			  <h5>Panasonic</h5>
+				<h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+			</div>
+		  </div><br/>
+			<div class="thumbnail">
+				<img src="~/Content/themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
+				<div class="caption">
+				  <h5>Kindle</h5>
+				    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+				</div>
+			  </div><br/>
+			<div class="thumbnail">
+				<img src="~/Content/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+				<div class="caption">
+				  <h5>Payment Methods</h5>
+				</div>
+			  </div>
+	</div>
     @RenderBody()
+        </div></div>
+</div>
     <!-- Footer ================================================================== -->
     <div id="footerSection">
         <div class="container">
@@ -149,11 +219,11 @@
                 <div id="socialMedia" class="span3 pull-right">
                     <h5>SOCIAL MEDIA </h5>
                     <a href="#">
-                        <img width="60" height="60" src="Content/themes/images/facebook.png" title="facebook" alt="facebook" /></a>
+                        <img width="60" height="60" src="~/Content/themes/images/facebook.png" title="facebook" alt="facebook" /></a>
                     <a href="#">
-                        <img width="60" height="60" src="Content/themes/images/twitter.png" title="twitter" alt="twitter" /></a>
+                        <img width="60" height="60" src="~/Content/themes/images/twitter.png" title="twitter" alt="twitter" /></a>
                     <a href="#">
-                        <img width="60" height="60" src="Content/themes/images/youtube.png" title="youtube" alt="youtube" /></a>
+                        <img width="60" height="60" src="~/Content/themes/images/youtube.png" title="youtube" alt="youtube" /></a>
                 </div>
             </div>
             <p class="pull-right">&copy; Bootshop</p>

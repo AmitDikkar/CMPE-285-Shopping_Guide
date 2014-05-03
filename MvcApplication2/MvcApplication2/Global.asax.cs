@@ -24,5 +24,36 @@ namespace MvcApplication2
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
         }
+
+        public class IfSessionAvailableAttribute : ActionFilterAttribute
+        {
+            public override void OnActionExecuting(ActionExecutingContext filterContext)
+            {
+                HttpContext ctx = HttpContext.Current;
+                if (ctx.Session != null)
+                {
+                    //string current = Request.Path.ToString();
+                    if (ctx.Session["LoggedUser"] == null)
+                    {
+                        if (ctx.Session["CurrentUrl"] != null)
+                        {
+                            ctx.Session["ReturnUrl"] = ctx.Session["CurrentUrl"];
+                        }
+                        else
+                        {
+                            //this is added to fix the temporary navigation to the login and from there to the cart
+                            //not the fixed solution, just a patch
+                            ctx.Session["ReturnUrl"] = "/Cart/Index";
+                        }
+                        ctx.Response.Redirect("/UserAccount/Login/", true);
+                    }
+                }
+                else
+                {
+                    ctx.Session["ReturnUrl"] = ctx.Session["CurrentUrl"];
+                    ctx.Response.Redirect("/UserAccount/Login/", true);
+                }
+            }
+        }
     }
 }

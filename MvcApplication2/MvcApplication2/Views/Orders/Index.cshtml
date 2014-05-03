@@ -1,0 +1,132 @@
+﻿@model IEnumerable<MvcApplication2.Models.Cart>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li class="active"> Orders</li>
+    </ul>
+	<h3>  Order Details [ <small>@Model.Count() Item(s) </small>]<a href="@Url.Action("Index","Home")" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>	
+	<hr class="soft"/>
+    @if (TempData["orderStatus"] != null)
+    {
+        <text>@TempData["orderStatus"].ToString()</text>
+        <hr class="soft"/>
+    }
+	<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+				  <th style="width:100px;">Price</th>
+                  <th>Discount</th>
+                  <th>Tax</th>
+                  <th colspan="6" style="text-align:right">Total</th>
+				</tr>
+              </thead>
+              <tbody>
+              @foreach(var ct in Model){ 
+                <tr>
+                  <td> <img width="60" src="@ct.Product.ListImageUrl" alt=""/></td>
+                  <td>MASSA AST<br/>Color : black, Material : metal</td>
+                  <td id="priceId">$@ct.Product.Price.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td colspan="6" style="text-align:right">$@ct.total.00</td>
+                </tr>
+              }
+                <tr>
+                  <td colspan="6" style="text-align:right">Total Price:	</td>
+                  <td> $@ViewBag.Total.00</td>
+                </tr>
+				 <tr>
+                  <td colspan="6" style="text-align:right">Total Discount:	</td>
+                  <td> $0.00</td>
+                </tr>
+                 <tr>
+                  <td colspan="6" style="text-align:right">Total Tax:	</td>
+                  <td> $0.00</td>
+                </tr>
+				 <tr>
+                  <td colspan="6" style="text-align:right"><strong>TOTAL ($@ViewBag.Total - $0.00 + $0.00) =</strong></td>
+                  <td class="label label-important" style="display:block"> <strong> @ViewBag.Total.00 </strong></td>
+                </tr>
+				</tbody>
+            </table>
+		
+		
+            <!--<table class="table table-bordered">
+			<tbody>
+				 <tr>
+                  <td> 
+				<form class="form-horizontal">
+				<div class="control-group">
+				<label class="control-label"><strong> VOUCHERS CODE: </strong> </label>
+				<div class="controls">
+				<input type="text" class="input-medium" placeholder="CODE">
+				<button type="submit" class="btn"> ADD </button>
+				</div>
+				</div>
+				</form>
+				</td>
+                </tr>
+				
+			</tbody>
+			</table>-->
+			
+			<table class="table table-bordered">
+			 <tr><th> YOUR BILLING ADDRESS:</th></tr>
+			 @if(ViewBag.AddressError !=null){
+                <tr><th> Error Message</th></tr>
+               }<tr> 
+			 <td>
+				@using (@Html.BeginForm("PlaceOrder", "Orders", FormMethod.Post, new { @class = "form-horizontal" })){
+                 <!--<form class="form-horizontal">-->
+				  <div class="control-group">
+					<label class="control-label" for="apartmentNo">Apartment Number </label>
+					<div class="controls">
+					  <input type="text" id="apartmentNo" name="apartmentNo" placeholder="Your ApartmentNo..">
+					</div>
+				  </div>
+                  <div class="control-group">
+					<label class="control-label" for="street">Street </label>
+					<div class="controls">
+					  <input type="text" id="street" name="street" placeholder="Your Street..">
+			        </div>
+				  </div>
+                  <div class="control-group">
+					<label class="control-label" for="state">State </label>
+					<div class="controls">
+					  <input type="text" id="state" name="state" placeholder="Your State..">
+			        </div>
+				  </div>
+                  <div class="control-group">
+					<label class="control-label" for="country">Country </label>
+					<div class="controls">
+					  <input type="text" id="country" name="country" placeholder="Your Country..">
+					</div>
+				  </div>
+				  <div class="control-group">
+					<label class="control-label" for="postCode">Post Code/ Zipcode </label>
+					<div class="controls">
+					  <input type="text" id="postCode" name="postCode" placeholder="Your Postcode..">
+					</div>
+				  </div>
+				  <div class="control-group">
+					<div class="controls">
+					  <button type="submit" class="btn btn-large btn-primary">Place Order </button>
+					</div>
+				  </div>
+				<!--</form>-->			  
+    }
+			  </td>
+			  </tr>
+            </table>		
+	<a href="@Url.Action("Index", "Home")" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
+
+</div>
+

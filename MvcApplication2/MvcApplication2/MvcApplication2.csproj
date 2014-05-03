@@ -110,17 +110,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -154,6 +146,14 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AuthConfig.cs" />
@@ -162,13 +162,33 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\API.cs" />
+    <Compile Include="Helpers\Utility.cs" />
+    <Compile Include="Migrations\201404210043585_Initial.cs" />
+    <Compile Include="Migrations\201404210043585_Initial.Designer.cs">
+      <DependentUpon>201404210043585_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404242322083_AddCartTable.cs" />
+    <Compile Include="Migrations\201404242322083_AddCartTable.Designer.cs">
+      <DependentUpon>201404242322083_AddCartTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404250139191_AddedVirtualProduct.cs" />
+    <Compile Include="Migrations\201404250139191_AddedVirtualProduct.Designer.cs">
+      <DependentUpon>201404250139191_AddedVirtualProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -340,6 +360,12 @@
     <Content Include="Content\themes\images\products\b2.jpg" />
     <Content Include="Content\themes\images\products\b3.jpg" />
     <Content Include="Content\themes\images\products\b4.jpg" />
+    <Content Include="Content\themes\images\products\Clothes\WomensClothes\Focus\Red_shoe.jpg" />
+    <Content Include="Content\themes\images\products\Clothes\WomensClothes\Large\Red_shoe.jpg" />
+    <Content Include="Content\themes\images\products\Clothes\WomensClothes\Red_shoe.jpg" />
+    <Content Include="Content\themes\images\products\Clothes\WomensClothes\Maroon_shoe.jpg" />
+    <Content Include="Content\themes\images\products\Clothes\WomensClothes\Blue_shoe.jpg" />
+    <Content Include="Content\themes\images\products\Clothes\WomensClothes\Black_shoe.jpg" />
     <Content Include="Content\themes\images\products\kindle.png" />
     <Content Include="Content\themes\images\products\large\1.jpg" />
     <Content Include="Content\themes\images\products\large\10.jpg" />
@@ -503,7 +529,9 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Views\Shared\logo.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -555,13 +583,31 @@
     <Content Include="Views\Home\Normal.cshtml" />
     <Content Include="Views\UserAccount\Login.cshtml" />
     <Content Include="Views\UserAccount\Register.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\ProductDetails.cshtml" />
+    <Content Include="Views\Products\ProductSummary.cshtml" />
+    <Content Include="Views\Cart\MyCart.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\themes\images\products\electronics\" />
     <Folder Include="Content\themes\less\oregional\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201404210043585_Initial.resx">
+      <DependentUpon>201404210043585_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404242322083_AddCartTable.resx">
+      <DependentUpon>201404242322083_AddCartTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404250139191_AddedVirtualProduct.resx">
+      <DependentUpon>201404250139191_AddedVirtualProduct.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
