@@ -83,7 +83,7 @@
                         <li class="">@Html.ActionLink("Special Offers","specialOffer", "Home")</li>
                         <li class="">@Html.ActionLink("Delivery","Normal", "Home")</li>
                         <li class="">@Html.ActionLink("Contact","Contact", "Home")</li>
-                        <li class=""><a href="@Url.Action("Login", "UserAccount")" role="button" data-toggle="modal" class="btn btn-large btn-success" type="submit"padding-right: 0">Login</a></li>
+                        <li class=""><a href="@Url.Action("Login", "UserAccount")" role="button" data-toggle="modal" type="submit" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a></li>
                             <!--<a href="#login" role="button" data-toggle="modal" style="padding-right: 0"><span class="btn btn-large btn-success">Login</span></a>-->
                     
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
@@ -198,7 +198,7 @@
                     <a href="login.html">PERSONAL INFORMATION</a>
                     <a href="login.html">ADDRESSES</a>
                     <a href="login.html">DISCOUNT</a>
-                    <a href="login.html">ORDER HISTORY</a>
+                    <a href= "@Url.Action("OrderHistory", "Orders")" >ORDER HISTORY</a>
                 </div>
                 <div class="span3">
                     <h5>INFORMATION</h5>

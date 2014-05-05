@@ -172,6 +172,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\API.cs" />
+    <Compile Include="Helpers\OrderHistoryViewModel.cs" />
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Migrations\201404210043585_Initial.cs" />
     <Compile Include="Migrations\201404210043585_Initial.Designer.cs">
@@ -589,6 +590,7 @@
     <Content Include="Views\Cart\MyCart.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\OrderHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -625,7 +627,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>10639</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:27417/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

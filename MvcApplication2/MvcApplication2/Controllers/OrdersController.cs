@@ -40,6 +40,8 @@ namespace MvcApplication2.Controllers
             }
         }
 
+        //
+        //POST: /Orders/PlaceOrder
         [HttpPost]
         [MvcApplication2.MvcApplication.IfSessionAvailable]
         public ActionResult PlaceOrder()
@@ -83,6 +85,36 @@ namespace MvcApplication2.Controllers
             string userEmail = (from item in myCartContext.users where item.ID == userID select item.email).FirstOrDefault();
             TempData["orderStatus"] = "Your order has been placed successfully. Confirmation email has been sent to: "+userEmail;
             return RedirectToAction("Index");
+        }
+
+        //
+        //GET: /Orders/OrderHistory
+        public ActionResult OrderHistory()
+        {
+           // OrderHistoryViewModel viewModel = new OrderHistoryViewModel();
+            List<Cart> ordersList = null;
+            if (Session["LoggedUser"] == null)
+            {
+                Session["ReturnUrl"] = "/Orders/OrderHistory/";
+                RedirectToAction("Login", "UserAccount");
+            }
+            else
+            {
+                int userID = (int) Session["LoggedUser"];
+                //IQueryable<Cart> cartsList = (from item in myCartContext.carts where item.userID == userID & item.billed == false select item);
+                IQueryable<Cart> cartsList = (from item in myCartContext.carts where item.userID == userID & item.billed == true select item);
+                //viewModel.cartsList = cartsList.ToList();
+                ordersList = cartsList.ToList();
+
+                float total = 0;
+                    foreach (Cart c in ordersList)
+                    {
+                        total = total + c.total;
+                    }
+                    ViewBag.total = total;
+                
+            }
+            return View(ordersList);
         }
     }
 }
