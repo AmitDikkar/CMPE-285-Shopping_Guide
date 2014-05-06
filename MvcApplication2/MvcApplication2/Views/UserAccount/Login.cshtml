@@ -78,7 +78,14 @@
 	<div class="row">
 		<div class="span4">
 			<div class="well">
-                <h5 style="color:green">@TempData["RegistrationComment"]</h5>
+                @if (TempData["LoginComment"] != null)
+                {
+                    <h5 style="color:green">@TempData["LoginComment"]</h5>
+                }
+                @if(@TempData["RegistrationComment"]!=null)
+                {
+                    <h5 style="color:green">@TempData["RegistrationComment"]</h5>    
+                }
                 <h5 style="color:green">@ViewBag.comment</h5>
                 <h5>Login Here Or @Html.ActionLink("Register", "Register", "UserAccount")</h5>
 			@using (Html.BeginForm()) {

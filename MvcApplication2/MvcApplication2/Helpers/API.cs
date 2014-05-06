@@ -21,13 +21,14 @@ namespace MvcApplication2.Helpers
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
                 //Below is the new created email ID to send emails to customers
-                client.Credentials = new NetworkCredential("shopcustomerserv@gmail.com","Hello12345");
+                client.Credentials = new NetworkCredential("shopcustomerserv@gmail.com", "Hello12345");
                 MailMessage msg = new MailMessage();
-                msg.To.Add("amit.dikkar@gmail.com"); //Customer Mail ID
+                msg.To.Add(recEmailId); //Customer Mail ID
                 msg.From = new MailAddress("shopcustomerserv@gmail.com");
-                msg.Subject = "Hello"; //Subject of Mail
-                msg.IsBodyHtml = true;
-                msg.Body = @"<H3> Hello <H3>
+               
+                    msg.Subject = "Hello"; //Subject of Mail
+                    msg.IsBodyHtml = true;
+                    msg.Body = @"<H3> Hello <H3>
                     <p>Thank you for shopping with us. We'd like to let you know that BootShop has received your order, 
                     and is preparing it for shipment. Your estimated delivery date is below and orders are shown below </p>
                     <table border=1>
@@ -35,13 +36,14 @@ namespace MvcApplication2.Helpers
                     <th>Item Name</th>
                     <th>Estimated Shipping Date</th>
                     <th>Quantity<th>
-                  </tr>"+//+ getTableBody(carts) +
-                "</table>"+
-                "<p>Please Message Back to shopcustomerserv@gmail.com for queries<p>"+
-                "<p>Thanks for Shopping With US<p>"+
-                "<br>"+
-                "<p>-CustomerService, BootShop<p>"+
-                    ";"; //Body of Mail
+                  </tr>" +//+ getTableBody(carts) +
+                    "</table>" +
+                    "<p>Please Message Back to shopcustomerserv@gmail.com for queries<p>" +
+                    "<p>Thanks for Shopping With US<p>" +
+                    "<br>" +
+                    "<p>-CustomerService, BootShop<p>" +
+                        ";"; //Body of Mail
+               
                 client.Send(msg);
                 //Response.Write("Mail Sent");
             }
@@ -87,6 +89,39 @@ namespace MvcApplication2.Helpers
                 "<br>"+
                 "<p>-CustomerService, BootShop<p>"+
                     ";"; //Body of Mail
+                client.Send(msg);
+                //Response.Write("Mail Sent");
+            }
+            catch (Exception ex)
+            {
+                //Response.Write("Could not send the e-mail - error: " + ex.Message);
+            }
+        }
+
+        public void sendFeedback(string recEmailId, string subject, string userName)
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.EnableSsl = true;
+                client.Timeout = 10000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                //Below is the new created email ID to send emails to customers
+                client.Credentials = new NetworkCredential("shopcustomerserv@gmail.com", "Hello12345");
+                MailMessage msg = new MailMessage();
+                msg.To.Add(recEmailId); //Customer Mail ID
+                msg.From = new MailAddress("shopcustomerserv@gmail.com");
+                msg.Subject = subject; //Subject of Mail
+                msg.IsBodyHtml = true;
+                msg.Body = @"<H3> Hi"+userName+@" <H3>
+                    <p> Thank you for providing your valueable feedback.</p>
+                    <p> We will definitly be considering your feedback for improving user experience </p>
+                    </ br>
+                    <p> Warm Regards,<p>
+                    <p> SlickMart </p>
+                    <p>";
+                    
                 client.Send(msg);
                 //Response.Write("Mail Sent");
             }

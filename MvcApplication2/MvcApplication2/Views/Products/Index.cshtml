@@ -11,13 +11,13 @@
 		<li><a href=@Url.Action("Index","Home")>Home</a> <span class="divider">/</span></li>
 		<li class="active">Products Name</li>
     </ul>
-	<h3> Products Name <small class="pull-right"> 40 products are available </small></h3>	
+	<h3> Products Name <small class="pull-right"> @Model.Count() products are available </small></h3>	
 	<hr class="soft"/>
 	<p>
 		Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - that is why our goods are so popular and we have a great number of faithful customers all over the country.
 	</p>
 	<hr class="soft"/>
-	<form class="form-horizontal span6">
+	<!--<form class="form-horizontal span6">
 		<div class="control-group">
 		  <label class="control-label alignL">Sort By </label>
 			<select>
@@ -27,7 +27,7 @@
               <option>Price Lowest first</option>
             </select>
 		</div>
-	  </form>
+	  </form>-->
 	  
 <div id="myTab" class="pull-right">
  <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
@@ -220,13 +220,13 @@
 			@foreach(var item in Model){
             <li class="span3">
 			  <div class="thumbnail">
-				<a href=@Url.Action("ProductDetails","Products", new {productID=@item.ID})><img src= @item.ListImageUrl alt=""/></a>
+				<a href="@Url.Action("ProductDetails","Products", new {productID=@item.ID})" ><img src=@item.ListImageUrl alt=""/></a>
 				<div class="caption">
 				  <h5>@item.ProductName</h5>
 				  <p>
 					@item.ProductShortDescription
 				  </p>
-				   <h4 style="text-align:center"><a class="btn" href=@Url.Action("ProductDetails","Products", new {productID=@item.ID})> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;@item.Price</a></h4>
+				   <h4 style="text-align:center"><a class="btn" href="@Url.Action("ProductDetails","Products", new {productID=@item.ID})" > <i class="icon-zoom-in"></i></a> <a class="btn" href="@Url.Action("MyCartGET", "Cart", new { productID = @item.ID })">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$@item.Price</a></h4>
 				</div>
 			  </div>
 			</li>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcApplication2.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,32 @@ namespace MvcApplication2.Controllers
             return View();
         }
 
+        //
+        //POST: /UserAccount/sendFeedback
+        [HttpPost]
+        public ActionResult sendFeedback()
+        {
+            //extract form data
+            String userName = Request["name"].ToString();
+            String email = Request["email"].ToString();
+            String subject = Request["subject"].ToString();
+            String messageText = Request["messageText"].ToString();
+
+            if (userName == "" || email == "" || subject == "" || messageText == "")
+            {
+                TempData["ValidationMessage"] = "Please provide correct input";
+                return RedirectToAction("Contact");
+            }
+            else
+            {
+                API api = new API();
+                api.sendFeedback(email, subject, userName);
+                TempData["FeedbackMessage"] = "We have Received your feedback. Thank You!!";
+            }
+            //send email
+            return RedirectToAction("Contact");
+        }
+
         /// <summary>
         /// Returns Special_Offer view
         /// </summary>
@@ -51,5 +78,6 @@ namespace MvcApplication2.Controllers
             
             return View();
         }
+
     }
 }
