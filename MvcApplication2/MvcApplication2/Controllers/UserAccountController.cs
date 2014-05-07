@@ -122,7 +122,7 @@ namespace MvcApplication2.Controllers
                     {
                         userDbContext.users.Add(newUser);
                         userDbContext.SaveChanges();
-                        TempData["RegistrationComment"] = "You have successfully Registered to BootShop. Please login now";
+                        TempData["RegistrationComment"] = "You have successfully Registered to Slic Mart. Please login now";
                         API api = new API();
                         //api.sendRegistrationEmail(user);
                         return RedirectToAction("Login");

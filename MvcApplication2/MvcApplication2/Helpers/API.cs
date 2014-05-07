@@ -29,7 +29,7 @@ namespace MvcApplication2.Helpers
                     msg.Subject = "Hello"; //Subject of Mail
                     msg.IsBodyHtml = true;
                     msg.Body = @"<H3> Hello <H3>
-                    <p>Thank you for shopping with us. We'd like to let you know that BootShop has received your order, 
+                    <p>Thank you for shopping with us. We'd like to let you know that Slick Mart has received your order, 
                     and is preparing it for shipment. Your estimated delivery date is below and orders are shown below </p>
                     <table border=1>
                   <tr>
@@ -41,7 +41,7 @@ namespace MvcApplication2.Helpers
                     "<p>Please Message Back to shopcustomerserv@gmail.com for queries<p>" +
                     "<p>Thanks for Shopping With US<p>" +
                     "<br>" +
-                    "<p>-CustomerService, BootShop<p>" +
+                    "<p>-CustomerService, Slick Mart<p>" +
                         ";"; //Body of Mail
                
                 client.Send(msg);
@@ -87,7 +87,7 @@ namespace MvcApplication2.Helpers
                 "<p>Please Message Back to shopcustomerserv@gmail.com for queries<p>"+
                 "<p>Thanks for Shopping With US<p>"+
                 "<br>"+
-                "<p>-CustomerService, BootShop<p>"+
+                "<p>-CustomerService, Slick Mart<p>"+
                     ";"; //Body of Mail
                 client.Send(msg);
                 //Response.Write("Mail Sent");
