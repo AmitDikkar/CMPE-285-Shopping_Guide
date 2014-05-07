@@ -124,7 +124,7 @@ namespace MvcApplication2.Controllers
                         userDbContext.SaveChanges();
                         TempData["RegistrationComment"] = "You have successfully Registered to BootShop. Please login now";
                         API api = new API();
-                        api.sendRegistrationEmail(user);
+                        //api.sendRegistrationEmail(user);
                         return RedirectToAction("Login");
                     }
                     else

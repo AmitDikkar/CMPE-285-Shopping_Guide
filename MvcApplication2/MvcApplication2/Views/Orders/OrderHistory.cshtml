@@ -27,15 +27,15 @@
                 <tr>
                   <td> <img width="60" src="@ct.Product.ListImageUrl" alt=""/></td>
                   <td>MASSA AST<br/>Color : black, Material : metal</td>
-                  <td id="priceId">$@ct.Product.Price.00</td>
+                  <td id="priceId">$@ct.Product.Price</td>
                   <td>$0.00</td>
                   <td>$0.00</td>
-                  <td colspan="6" style="text-align:right">$@ct.total.00</td>
+                  <td colspan="6" style="text-align:right">$@ct.total</td>
                 </tr>
               }
                 <tr>
                   <td colspan="6" style="text-align:right">Total Price:	</td>
-                  <td> $@ViewBag.Total.00</td>
+                  <td> $@ViewBag.Total</td>
                 </tr>
 				 <tr>
                   <td colspan="6" style="text-align:right">Total Discount:	</td>
@@ -47,7 +47,7 @@
                 </tr>
 				 <tr>
                   <td colspan="6" style="text-align:right"><strong>TOTAL ($@ViewBag.Total - $0.00 + $0.00) =</strong></td>
-                  <td class="label label-important" style="display:block"> <strong> @ViewBag.Total.00 </strong></td>
+                  <td class="label label-important" style="display:block"> <strong> @ViewBag.Total </strong></td>
                 </tr>
 				</tbody>
             </table>	
