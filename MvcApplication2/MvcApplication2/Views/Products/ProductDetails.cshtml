@@ -6,14 +6,14 @@
 
 <div class="span9">
     <ul class="breadcrumb">
-    <li><a href=@Url.Action("Index", "Home") >Home</a> <span class="divider">/</span></li>
-    <li><a href=@Context.Session["NavigationLinkProductAddress"].ToString() >Products</a> <span class="divider">/</span></li>
+    <li><a href="@Url.Action("Index", "Home")" >Home</a> <span class="divider">/</span></li>
+    @if (@HttpContext.Current.Session["NavigationLinkProductAddress"]!=null){<li><a href="@HttpContext.Current.Session["NavigationLinkProductAddress"].ToString()" >Products</a> <span class="divider">/</span></li>}
     <li class="active">product Details</li>
     </ul>	
 	<div class="row">	  
 			<div id="gallery" class="span3">
-            <a href="@Model.Focus1ImageUrl" title=@Model.ProductName>
-				<img src=@Model.LargeImageUrl style="width:100%" alt=@Model.ProductName />
+            <a href="@Model.Focus1ImageUrl" title="@Model.ProductName">
+				<img src="@Model.LargeImageUrl" style="width:100%" alt="@Model.ProductName" />
             </a>
 			<div id="differentview" class="moreOptopm carousel slide">
                 <div class="carousel-inner">
@@ -23,9 +23,9 @@
                    <a href="/Content/themes/images/products/large/f3.jpg"> <img style="width:29%" src="/Content/themes/images/products/large/f3.jpg" alt=""/></a>
                   </div>-->
                   <div class="item active">
-                   <a href=@Model.Focus1ImageUrl.ToString()> <img style="width:29%" src=@Model.Focus1ImageUrl.ToString() alt=""/></a>
-                   <a href=@Model.Focus2ImageUrl.ToString()> <img style="width:29%" src=@Model.Focus2ImageUrl.ToString() alt=""/></a>
-                   <a href=@Model.Focus3ImageUrl.ToString()> <img style="width:29%" src=@Model.Focus3ImageUrl.ToString() alt=""/></a>
+                   <a href="@Model.Focus1ImageUrl.ToString()"> <img style="width:29%" src="@Model.Focus1ImageUrl.ToString()" alt=""/></a>
+                   <a href="@Model.Focus2ImageUrl.ToString()"> <img style="width:29%" src="@Model.Focus2ImageUrl.ToString()" alt=""/></a>
+                   <a href="@Model.Focus3ImageUrl.ToString()"> <img style="width:29%" src="@Model.Focus3ImageUrl.ToString()" alt=""/></a>
                   </div>
                   <!--<div class="item">
                    <a href="/Content/themes/images/products/large/f3.jpg" > <img style="width:29%" src="themes/images/products/large/f3.jpg" alt=""/></a>
@@ -158,7 +158,7 @@
 						<hr class="soft"/>
 						<h5>Product Name </h5>
 						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
+						Nowadays the Electronics industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
 						that is why our goods are so popular..
 						</p>
 						<a class="btn btn-small pull-right" href="product_details.html">View Details</a>
@@ -187,7 +187,7 @@
 						<hr class="soft"/>
 						<h5>Product Name </h5>
 						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
+						Nowadays the Electronics industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
 						that is why our goods are so popular..
 						</p>
 						<a class="btn btn-small pull-right" href="product_details.html">View Details</a>
@@ -216,7 +216,7 @@
 						<hr class="soft"/>
 						<h5>Product Name </h5>
 						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
+						Nowadays the Electronics industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
 						that is why our goods are so popular..
 						</p>
 						<a class="btn btn-small pull-right" href="product_details.html">View Details</a>
@@ -245,7 +245,7 @@
 						<hr class="soft"/>
 						<h5>Product Name </h5>
 						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
+						Nowadays the Electronics industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
 						that is why our goods are so popular..
 						</p>
 						<a class="btn btn-small pull-right" href="product_details.html">View Details</a>
@@ -275,7 +275,7 @@
 						<hr class="soft"/>
 						<h5>Product Name </h5>
 						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
+						Nowadays the Electronics industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
 						that is why our goods are so popular..
 						</p>
 						<a class="btn btn-small pull-right" href="product_details.html">View Details</a>
@@ -304,7 +304,7 @@
 						<hr class="soft"/>
 						<h5>Product Name </h5>
 						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
+						Nowadays the Electronics industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
 						that is why our goods are so popular..
 						</p>
 						<a class="btn btn-small pull-right" href="product_details.html">View Details</a>
