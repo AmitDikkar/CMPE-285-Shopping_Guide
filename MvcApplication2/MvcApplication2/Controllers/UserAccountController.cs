@@ -30,6 +30,14 @@ namespace MvcApplication2.Controllers
         }
 
         //
+        //GET: /UserAccount/Logout/
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
+        //
         // POST: /UserAccount/Login
         [HttpPost]
         public ActionResult Login(User existingUser)

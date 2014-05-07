@@ -63,10 +63,10 @@
 				  <td>
 					<div class="input-append"><input class="span1" style="max-width:34px" placeholder="@ct.quantity.ToString()" id="appendedInputButtons" size="16" type="text"><a role="button" class= "btn" href="@Url.Action("UpdateQuantity","Cart", new{operation="sub", cartId=@ct.ID})"><i class="icon-minus"></i></a><a role="button" class= "btn" href="@Url.Action("UpdateQuantity","Cart", new{operation="add", cartId=@ct.ID})"><i class="icon-plus"></i></a><a role="button" class= "btn btn-danger" href="@Url.Action("UpdateQuantity","Cart", new{operation="del", cartId=@ct.ID})"><i class="icon-remove icon-white"></i></a>				</div>
 				  </td>
-                  <td id="priceId">$@ct.Product.Price.00</td>
+                  <td id="priceId">$@ct.Product.Price</td>
                   <td>$0.00</td>
                   <td>$0.00</td>
-                  <td>$@ct.total.00</td>
+                  <td>$@ct.total</td>
                 </tr>
               }
 				<!--<tr>
@@ -94,7 +94,7 @@
 				
                 <tr>
                   <td colspan="6" style="text-align:right">Total Price:	</td>
-                  <td> $@ViewBag.Total.00</td>
+                  <td> $@ViewBag.Total</td>
                 </tr>
 				 <tr>
                   <td colspan="6" style="text-align:right">Total Discount:	</td>
@@ -106,7 +106,7 @@
                 </tr>
 				 <tr>
                   <td colspan="6" style="text-align:right"><strong>TOTAL ($@ViewBag.Total - $0.00 + $0.00) =</strong></td>
-                  <td class="label label-important" style="display:block"> <strong> @ViewBag.Total.00 </strong></td>
+                  <td class="label label-important" style="display:block"> <strong> @ViewBag.Total </strong></td>
                 </tr>
 				</tbody>
             </table>

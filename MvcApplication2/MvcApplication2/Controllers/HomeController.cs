@@ -1,4 +1,5 @@
 ﻿using MvcApplication2.Helpers;
+using MvcApplication2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,17 @@ namespace MvcApplication2.Controllers
 {
     public class HomeController : Controller
     {
+        ShoppingDbContext shoppingDb = new ShoppingDbContext();
         //Home/
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            IQueryable<Product> electronics = (from item in shoppingDb.products where item.Type == "electronics" select item).Take(3);
+            IQueryable<Product> equips = (from item in shoppingDb.products where item.Type == "healthandbeauty" select item).Take(3);
+            List<Product> displayList = new List<Product>();
+            displayList.AddRange(electronics);
+            displayList.AddRange(equips);
+            return View(displayList);
         }
 
         public ActionResult About()

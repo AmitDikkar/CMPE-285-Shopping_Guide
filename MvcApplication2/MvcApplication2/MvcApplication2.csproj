@@ -194,6 +194,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Canon_Camera_Black.jpg" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
@@ -367,6 +368,61 @@
     <Content Include="Content\themes\images\products\Clothes\WomensClothes\Maroon_shoe.jpg" />
     <Content Include="Content\themes\images\products\Clothes\WomensClothes\Blue_shoe.jpg" />
     <Content Include="Content\themes\images\products\Clothes\WomensClothes\Black_shoe.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Canon_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Canon_Camera_Black_f1.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Canon_Camera_Black_f2.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Canon_Camera_Black_f3.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Fujifilm_Camera_Black_f1.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Fujifilm_Camera_Black_f2.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Fujifilm_Camera_Black_f3.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Kodak_Camera_Red_f1.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Kodak_Camera_Red_f2.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Kodak_Camera_Red_f3.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Lumix_Camera_Black_f1.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Lumix_Camera_Black_f2.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Lumix_Camera_Black_f3.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Nikon_Camera_Black_f1.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Nikon_Camera_Black_f2.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Nikon_Camera_Black_f3.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Sony_Camera_Silver_f1.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Sony_Camera_Silver_f2.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Focus\Sony_Camera_Silver_f3.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Fujifilm_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Kodak_Camera_Red.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Large\Canon_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Large\Fujifilm_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Large\Kodak_Camera_Red.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Large\Lumix_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Large\Nikon_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Large\Sony_Camera_Silver.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Lumix_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Nikon_Camera_Black.jpg" />
+    <Content Include="Content\themes\images\products\electronics\camera\Sony_Camera_Silver.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Nike_Fuel_f1.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Nike_Fuel_f2.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Nike_Fuel_f3.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Philips_Tooth_f1.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Philips_Tooth_f2.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Philips_Tooth_f3.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Razor_f1.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Razor_f2.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Razor_f3.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Samsung_Gear_f1.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Samsung_Gear_f2.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Samsung_Gear_f3.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Treadmill_f1.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Treadmill_f2.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Focus\Treadmill_f3.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Large\Nike_Fuel.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Large\Philips_Tooth.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Large\Razor.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Large\Samsung_Gear.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Large\Treadmill.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Nike_Fuel.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Philips_Tooth.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Razor.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Samsung_Gear.jpg" />
+    <Content Include="Content\themes\images\products\healthandbeauty\healthequipments\Treadmill.jpg" />
     <Content Include="Content\themes\images\products\kindle.png" />
     <Content Include="Content\themes\images\products\large\1.jpg" />
     <Content Include="Content\themes\images\products\large\10.jpg" />
@@ -450,6 +506,7 @@
     <Content Include="Content\themes\switch\themeswitch.css" />
     <Content Include="Content\themes\united\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Fujifilm_Camera_Black.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\themes\font\fontawesome-webfont.eot" />
     <Content Include="Content\themes\font\fontawesome-webfont.ttf" />
@@ -513,6 +570,9 @@
     <Content Include="Content\themes\less\variables.less" />
     <Content Include="Content\themes\less\wells.less" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Kodak_Camera_Red.jpg" />
+    <Content Include="Lumix_Camera_Black.jpg" />
+    <Content Include="Nikon_Camera_Black.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -529,6 +589,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Sony_Camera_Silver.jpg" />
     <Content Include="Views\Shared\logo.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -594,7 +655,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\themes\images\products\electronics\" />
     <Folder Include="Content\themes\less\oregional\" />
   </ItemGroup>
   <ItemGroup>

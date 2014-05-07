@@ -112,7 +112,7 @@ namespace MvcApplication2.Helpers
                 MailMessage msg = new MailMessage();
                 msg.To.Add(recEmailId); //Customer Mail ID
                 msg.From = new MailAddress("shopcustomerserv@gmail.com");
-                msg.Subject = subject; //Subject of Mail
+                msg.Subject = "RE: "+subject; //Subject of Mail
                 msg.IsBodyHtml = true;
                 msg.Body = @"<H3> Hi"+userName+@" <H3>
                     <p> Thank you for providing your valueable feedback.</p>
